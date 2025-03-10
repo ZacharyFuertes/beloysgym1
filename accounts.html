@@ -3,39 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="accounts.css">
+    <title>Gym Website</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
+    <div class="navbar">
+        <button class="home-btn"><a href="index.html">Home</a></button>
+    </div>
     <div class="container">
-        <h1>Login to Your Account</h1>
-        <form id="login-form">
-            <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" required>
-
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" required>
-
-            <button type="submit" class="login-btn">Login</button>
-        </form>
+        <h1>MY ACCOUNT</h1>
+        <div class="profile">
+            <img src="https://imgs.search.brave.com/tBJ54mp1Ab1UnF_T6xGcOPhzGRSUJ8dBYObowyWTtpQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9wZW9w/bGUuY29tL3RobWIv/dVdoaWdpeTAzZ3RK/OTg4czZQR1hFT3Yw/MUtzPS80MDAweDAv/ZmlsdGVyczpub191/cHNjYWxlKCk6bWF4/X2J5dGVzKDE1MDAw/MCk6c3RyaXBfaWNj/KCk6Zm9jYWwoNzQ5/eDA6NzUxeDIpL0dl/b3JnZS1GbG95ZC01/NzQ0NjA2MjE5NWQ0/Yjk0ODViMjIwM2My/ZjRmYzIxNC5qcGc" alt="Profile Picture" class="avatar">
+            <div class="info">
+                <p><strong>Name:</strong> <span id="user-name"></span></p>
+                <p><strong>Email:</strong> <span id="user-email"></span></p>
+            </div>
+        </div>
+        <div class="tabs">
+            <button class="tab-link active" onclick="openTab(event, 'progress')">Progress</button>
+            <button class="tab-link" onclick="openTab(event, 'activities')">Activities</button>
+        </div>
+        <div id="progress" class="tab-content active">
+            <h2>Progress</h2>
+            <div class="chart">
+                <canvas id="progressChart"></canvas>
+            </div>
+        </div>
+        <div id="activities" class="tab-content">
+            <h2>Activities</h2>
+            <div class="activities-grid">
+                <div class="activity">
+                    <img src="images/meditation.png" alt="Meditation">
+                    <p>Meditation</p>
+                </div>
+                <div class="activity">
+                    <img src="pictures/boxing.png" alt="Boxing">
+                    <p>Boxing</p>
+                </div>
+                <div class="activity">
+                    <img src="images/yoga.png" alt="Yoga">
+                    <p>Yoga</p>
+                </div>
+                <div class="activity">
+                    <img src="images/cardio.png" alt="Cardio">
+                    <p>Cardio</p>
+                </div>
+                <div class="activity">
+                    <img src="images/water_aerobics.png" alt="Water Aerobics">
+                    <p>Water Aerobics</p>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script>
-        document.getElementById('login-form').addEventListener('submit', function(event) {
-            event.preventDefault();
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
 
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-
-            const storedUser = JSON.parse(localStorage.getItem('user'));
-
-            if (storedUser && storedUser.email === email && storedUser.password === password) {
-                alert('Login successful!');
-                window.location.href = 'accounts.html';
-            } else {
-                alert('Invalid email or password!');
+        // Initialize Chart.js
+        var ctx = document.getElementById('progressChart').getContext('2d');
+        var progressChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ['Cardio', 'Boxing', 'Yoga', 'Meditation', 'Water Aerobics'],
+                datasets: [{
+                    label: 'Progress',
+                    data: [40, 10, 30, 15, 5],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                if (context.parsed !== null) {
+                                    label += context.parsed + '%';
+                                }
+                                return label;
+                            }
+                        }
+                    }
+                }
             }
         });
+
+        // Display user information
+        const storedUser = JSON.parse(localStorage.getItem('user'));
+        if (storedUser) {
+            document.getElementById('user-name').textContent = storedUser.username;
+            document.getElementById('user-email').textContent = storedUser.email;
+        }
     </script>
 </body>
 </html>
