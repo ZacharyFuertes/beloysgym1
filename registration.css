@@ -16,12 +16,18 @@ body, html {
     left: 20px;
 }
 
-.navbar .home-btn a {
-    text-decoration: none;
-    color: white;
-    background-color: #4CAF50;
+.navbar .home-btn {
+    background-color: white;
+    color: black;
+    border: none;
     padding: 10px 20px;
     border-radius: 5px;
+    cursor: pointer;
+}
+
+.navbar .home-btn a {
+    text-decoration: none;
+    color: black;
 }
 
 .container {
@@ -40,19 +46,21 @@ body, html {
 .container label {
     display: block;
     margin: 10px 0 5px;
+    text-align: left;
 }
 
 .container input {
-    width: 100%;
+    width: calc(100% - 20px); /* Adjust width to fit within padding */
     padding: 10px;
     margin-bottom: 10px;
     border: none;
     border-radius: 5px;
+    box-sizing: border-box; /* Ensure padding is included in width */
 }
 
 .container .submit-btn {
-    background-color: #4CAF50;
-    color: white;
+    background-color: white;
+    color: black;
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
