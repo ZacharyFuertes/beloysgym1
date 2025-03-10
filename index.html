@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>Gym Website</title>
+</head>
+<body>
+    <header class="header">
+        <nav>
+            <ul>
+                <li><a style="color: #2a1b4a" href="index.html" id="home-link">Home</a></li>
+                <li><a style="color: #2a1b4a" href="memberships.html" id="memberships-link">Memberships</a></li>
+                <li>
+                    <select id="language-select" onchange="changeLanguage()">
+                        <option value="en">English</option>
+                        <option value="es">Spanish</option>
+                        <option value="fr">French</option>
+                        <!-- Add more languages as needed -->
+                    </select>
+                </li>
+                <li><a href="login.html" id="account-link">My Account</a></li>
+                <li><a href="registration.html" class="join-now" id="join-now-link">Join Now</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="background">
+        <h1 id="main-title">MAKE YOUR LIFE MORE BETTER</h1>
+        <p id="main-subtitle">JOIN THE GYM CLUB NOW!</p>
+        <div class="search-bar">
+            <input type="text" placeholder="Search by address, city, or ZIP code" id="search-placeholder">
+            <button id="search-button">Find a gym</button>
+        </div>
+    </div>
+    <div class="footer" id="footer-content">
+        Footer content goes here
+    </div>
+
+    <script>
+        const translations = {
+            en: {
+                home: "Home",
+                memberships: "Memberships",
+                account: "My Account",
+                joinNow: "Join Now",
+                mainTitle: "MAKE YOUR LIFE MORE BETTER",
+                mainSubtitle: "JOIN THE GYM CLUB NOW!",
+                searchPlaceholder: "Search by address, city, or ZIP code",
+                searchButton: "Find a gym",
+                footer: "Footer content goes here"
+            },
+            es: {
+                home: "Inicio",
+                memberships: "Membresías",
+                account: "Mi Cuenta",
+                joinNow: "Únete ahora",
+                mainTitle: "MEJORA TU VIDA",
+                mainSubtitle: "¡ÚNETE AL CLUB DE GIMNASIO AHORA!",
+                searchPlaceholder: "Buscar por dirección, ciudad o código postal",
+                searchButton: "Encuentra un gimnasio",
+                footer: "El contenido del pie de página va aquí"
+            },
+            fr: {
+                home: "Accueil",
+                memberships: "Abonnements",
+                account: "Mon Compte",
+                joinNow: "Rejoignez maintenant",
+                mainTitle: "AMÉLIOREZ VOTRE VIE",
+                mainSubtitle: "REJOIGNEZ LE CLUB DE GYM MAINTENANT!",
+                searchPlaceholder: "Rechercher par adresse, ville ou code postal",
+                searchButton: "Trouver une salle de sport",
+                footer: "Le contenu du pied de page va ici"
+            }
+            // Add more translations as needed
+        };
+
+        function changeLanguage() {
+            const language = document.getElementById('language-select').value;
+            document.getElementById('home-link').innerText = translations[language].home;
+            document.getElementById('memberships-link').innerText = translations[language].memberships;
+            document.getElementById('account-link').innerText = translations[language].account;
+            document.getElementById('join-now-link').innerText = translations[language].joinNow;
+            document.getElementById('main-title').innerText = translations[language].mainTitle;
+            document.getElementById('main-subtitle').innerText = translations[language].mainSubtitle;
+            document.getElementById('search-placeholder').placeholder = translations[language].searchPlaceholder;
+            document.getElementById('search-button').innerText = translations[language].searchButton;
+            document.getElementById('footer-content').innerText = translations[language].footer;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #2a1b4a;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.navbar {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.navbar .home-btn a {
+    text-decoration: none;
+    color: white;
+    background-color: #4CAF50;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.container {
+    background-color: #3b2a5a;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 800px;
+    text-align: center;
+}
+
+.container h1 {
+    margin-bottom: 20px;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.profile .avatar {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    margin-right: 20px;
+}
+
+.profile .info {
+    text-align: left;
+}
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.tab-link {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 0 5px;
+}
+
+.tab-link.active {
+    background-color: #2a1b4a;
+    color: #4CAF50;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.progress h2, .activities h2 {
+    margin-bottom: 10px;
+}
+
+.activities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+}
+
+.activity {
+    background-color: #4CAF50;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    border: 2px solid white;
+}
+
+.activity img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+}
+
+.activity p {
+    margin: 0;
+    color: white;
+    font-weight: bold;
+}
