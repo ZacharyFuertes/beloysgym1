@@ -16,12 +16,19 @@ body, html {
     left: 20px;
 }
 
+.navbar .home-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
 .navbar .home-btn a {
     text-decoration: none;
     color: white;
-    background-color: #4CAF50;
-    padding: 10px 20px;
-    border-radius: 5px;
+    display: block;
 }
 
 .container {
