@@ -3,90 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="index.css">
     <title>Gym Website</title>
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
     <header class="header">
         <nav>
             <ul>
-                <li><a style="color: #2a1b4a" href="index.html" id="home-link">Home</a></li>
-                <li><a style="color: #2a1b4a" href="Memberships.html" id="memberships-link">Memberships</a></li>
+                <li><a href="memberships.html">MEMBERSHIPS</a></li>
                 <li>
-                    <select id="language-select" onchange="changeLanguage()">
-                        <option value="en">English</option>
-                        <option value="es">Spanish</option>
-                        <option value="fr">French</option>
+                    <select id="language-select">
+                        <option value="en">ENGLISH</option>
+                        <option value="es">SPANISH</option>
+                        <option value="fr">FRENCH</option>
                         <!-- Add more languages as needed -->
                     </select>
                 </li>
-                <li><a href="login.html" id="account-link">My Account</a></li>
-                <li><a href="registration.html" class="join-now" id="join-now-link">Join Now</a></li>
+                <li><a href="accounts.html">MY ACCOUNT</a></li>
+                <li><a href="registration.html" class="join-now">Join Now</a></li>
             </ul>
         </nav>
     </header>
     <div class="background">
-        <h1 id="main-title">MAKE YOUR LIFE MORE BETTER</h1>
-        <p id="main-subtitle">JOIN THE GYM CLUB NOW!</p>
+        <h1>MAKE YOUR LIFE MORE BETTER</h1>
+        <p>JOIN THE GYM CLUB NOW!</p>
         <div class="search-bar">
-            <input type="text" placeholder="Search by address, city, or ZIP code" id="search-placeholder">
-            <button id="search-button">Find a gym</button>
+            <input type="text" placeholder="Search by address, city, or ZIP code">
+            <button><i class="fas fa-search"></i> Find a gym</button>
         </div>
     </div>
-    <div class="footer" id="footer-content">
-        Footer content goes here
-    </div>
-
-    <script>
-        const translations = {
-            en: {
-                home: "Home",
-                memberships: "Memberships",
-                account: "My Account",
-                joinNow: "Join Now",
-                mainTitle: "MAKE YOUR LIFE MORE BETTER",
-                mainSubtitle: "JOIN THE GYM CLUB NOW!",
-                searchPlaceholder: "Search by address, city, or ZIP code",
-                searchButton: "Find a gym",
-                footer: "Footer content goes here"
-            },
-            es: {
-                home: "Inicio",
-                memberships: "Membresías",
-                account: "Mi Cuenta",
-                joinNow: "Únete ahora",
-                mainTitle: "MEJORA TU VIDA",
-                mainSubtitle: "¡ÚNETE AL CLUB DE GIMNASIO AHORA!",
-                searchPlaceholder: "Buscar por dirección, ciudad o código postal",
-                searchButton: "Encuentra un gimnasio",
-                footer: "El contenido del pie de página va aquí"
-            },
-            fr: {
-                home: "Accueil",
-                memberships: "Abonnements",
-                account: "Mon Compte",
-                joinNow: "Rejoignez maintenant",
-                mainTitle: "AMÉLIOREZ VOTRE VIE",
-                mainSubtitle: "REJOIGNEZ LE CLUB DE GYM MAINTENANT!",
-                searchPlaceholder: "Rechercher par adresse, ville ou code postal",
-                searchButton: "Trouver une salle de sport",
-                footer: "Le contenu du pied de page va ici"
-            }
-            // Add more translations as needed
-        };
-
-        function changeLanguage() {
-            const language = document.getElementById('language-select').value;
-            document.getElementById('home-link').innerText = translations[language].home;
-            document.getElementById('memberships-link').innerText = translations[language].memberships;
-            document.getElementById('account-link').innerText = translations[language].account;
-            document.getElementById('join-now-link').innerText = translations[language].joinNow;
-            document.getElementById('main-title').innerText = translations[language].mainTitle;
-            document.getElementById('main-subtitle').innerText = translations[language].mainSubtitle;
-            document.getElementById('search-placeholder').placeholder = translations[language].searchPlaceholder;
-            document.getElementById('search-button').innerText = translations[language].searchButton;
-            document.getElementById('footer-content').innerText = translations[language].footer;
-        }
-    </script>
+    
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </body>
 </html>
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<section class="features">
+    <h2>Coach-led Personal and Group Fitness Training</h2>
+    <p>Designed to help you reach your own individual goals. Our coaches lead group and one-on-one workouts that actually work.</p>
+    <button class="find-gym-button">Find Your Gym to Learn More</button>
+    <div class="feature-cards">
+        <div class="feature-card">
+            <img src="fitness-consultation.jpg" alt="Fitness Consultation">
+            <h3>FITNESS CONSULTATION</h3>
+            <p style="color: #2a1b4a;">Through a short survey, conversation, and a movement assessment, your coach will prescribe the perfect program to get you started and on track to meet your fitness goals.</p>
+            <button>Learn More</button>
+        </div>
+        <div class="feature-card">
+            <img src="group.jpg" alt="Group Workouts">
+            <h3>GROUP WORKOUTS</h3>
+            <p style="color: #2a1b4a;" >Full-body workouts are designed to build strength and endurance, using the energy of a small group or team of people around you and the expertise of the coach to maximize your results.</p>
+            <button>Learn More</button>
+        </div>
+        <div class="feature-card">
+            <img src="one-on-one.jpg" alt="One-on-One Training">
+            <h3>ONE-ON-ONE TRAINING</h3>
+            <p style="color: #2a1b4a">One-on-one personalized workouts with your coach are designed to make you stronger from the inside out.</p>
+            <button>Learn More</button>
+        </div>
+    </div>
+</section>
