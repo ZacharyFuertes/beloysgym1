@@ -89,7 +89,11 @@ body, html {
 .tab-content.active {
     display: block;
 }
-
+.chart {
+    width: 100%;
+    max-width: 500px; /* Set a maximum width for the chart */
+    margin: 0 auto;
+}
 .progress h2, .activities h2 {
     margin-bottom: 10px;
 }
@@ -101,7 +105,7 @@ body, html {
 }
 
 .activity {
-    background-color: #4CAF50;
+    background-color: #3b2a5a;
     padding: 20px;
     border-radius: 10px;
     text-align: center;
