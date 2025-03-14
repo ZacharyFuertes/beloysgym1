@@ -3,15 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Membership Plans</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="Memberships.css">
-    <title>Memberships</title>
 </head>
-<body>
+<body class="bg-[#1E1A3D] text-white">
     <header class="header">
         <nav>
             <ul>
                 <li><a href="index.html" id="home-link">Home</a></li>
-                <li><a href="Memberships.html" id="memberships-link">Memberships</a></li>
+                <li><a href="memberships.html" id="memberships-link">Memberships</a></li>
                 <li>
                     <select id="language-select" onchange="changeLanguage()">
                         <option value="en">English</option>
@@ -20,51 +21,65 @@
                         <!-- Add more languages as needed -->
                     </select>
                 </li>
-                <li><a href="#" id="account-link">My Account</a></li>
-                <li><a href="#" class="join-now" id="join-now-link">Join Now</a></li>
+                <li><a href="accounts.html" id="account-link">My Account</a></li>
+                <li><a href="registration.html" class="join-now" id="join-now-link">Join Now</a></li>
             </ul>
         </nav>
     </header>
-    <div class="background">
-        <h1 style="color: #2a1b4a;" id="title">OUR MEMBERSHIPS</h1>
-        <div class="memberships">
-            <div class="membership-card classic">
-                <h2 id="classic-title">CLASSIC</h2>
-                <p id="classic-price">Starting at ₱500/month*</p>
-                <p id="classic-description">Our standard membership, with unlimited access to your selected gym.</p>
-                <button onclick="showModal('classic')" id="classic-learn-more">Learn More</button>
-                <button id="classic-join-now">Join Now</button>
+    <div class="container mx-auto py-12">
+        <h1 class="text-center text-3xl font-bold mb-8" id="title">OUR MEMBERSHIPS</h1>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Classic Membership Card -->
+            <div class="bg-white text-[#1E1A3D] p-6 rounded-lg shadow-lg">
+                <h2 class="text-xl font-bold text-[#D81B60]" id="classic-title">CLASSIC</h2>
+                <p class="text-[#D81B60]" id="classic-price">Starting at ₱500/month*</p>
+                <p class="mt-4" id="classic-description">Our standard membership, with unlimited access to your selected gym.</p>
+                <div class="mt-6 flex justify-between">
+                    <a href="#" class="text-[#1E1A3D] underline" onclick="showModal('classic-modal')" id="classic-learn-more">Learn More</a>
+                    <a href="#" class="bg-[#1E1A3D] text-white py-2 px-4 rounded" id="classic-join-now">Join Now</a>
+                </div>
             </div>
-            <div class="membership-card premium">
-                <h2 id="premium-title">PREMIUM</h2>
-                <p id="premium-price">Starting at ₱1500/month*</p>
-                <p id="premium-description">Access to any gym, bring guest anytime, and so much more!</p>
-                <button onclick="showModal('premium')" id="premium-learn-more">Learn More</button>
-                <button id="premium-join-now">Join Now</button>
+            <!-- Premium Membership Card -->
+            <div class="bg-white text-[#1E1A3D] p-6 rounded-lg shadow-lg">
+                <h2 class="text-xl font-bold text-[#FFC107]" id="premium-title">PREMIUM</h2>
+                <p class="text-[#FFC107]" id="premium-price">Starting at ₱1500/month*</p>
+                <p class="mt-4" id="premium-description">Access to any gym, bring guest anytime, and so much more!</p>
+                <div class="mt-6 flex justify-between">
+                    <a href="#" class="text-[#1E1A3D] underline" onclick="showModal('premium-modal')" id="premium-learn-more">Learn More</a>
+                    <a href="#" class="bg-[#1E1A3D] text-white py-2 px-4 rounded" id="premium-join-now">Join Now</a>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="footer" id="footer-content">
-        Footer content goes here
     </div>
 
-    <!-- Modal Structure -->
-    <div id="modal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <div id="modal-classic" class="modal-details">
-                <h2>CLASSIC</h2>
-                <p>Starting at ₱500/month*</p>
-                <p>Unlimited Access to Home Club<br>Free Fitness Training<br>Free Wifi</p>
-                <button>Join Classic</button>
+    <!-- Classic Modal -->
+    <div id="classic-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden">
+        <div class="bg-white text-[#1E1A3D] p-6 rounded-lg shadow-lg w-11/12 md:w-1/2">
+            <h2 class="text-xl font-bold text-[#D81B60]">CLASSIC</h2>
+            <p class="text-[#D81B60]">Starting at ₱500/month*</p>
+            <p class="mt-4">Unlimited Access to Home Club<br>Free Fitness Training<br>Free Wifi</p>
+            <div class="mt-6 flex justify-center">
+                <a href="#" class="bg-[#1E1A3D] text-white py-2 px-4 rounded">Join Classic</a>
             </div>
-            <div id="modal-premium" class="modal-details">
-                <h2>PREMIUM</h2>
-                <p>Starting at ₱1500/month*</p>
-                <p>Use of Any Beloy's Gym Fitness worldwide<br>Bring a Guest anytime<br>50% Off Select Drinks<br>Free Wifi<br>Use of any workout machine, body enhancement machine, and many more!</p>
-                <button>Join Premium</button>
-            </div>
+            <button class="mt-4 text-[#1E1A3D] underline" onclick="closeModal('classic-modal')">Close</button>
         </div>
+    </div>
+
+    <!-- Premium Modal -->
+    <div id="premium-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden">
+        <div class="bg-white text-[#1E1A3D] p-6 rounded-lg shadow-lg w-11/12 md:w-1/2">
+            <h2 class="text-xl font-bold text-[#FFC107]">PREMIUM</h2>
+            <p class="text-[#FFC107]">Starting at ₱1500/month*</p>
+            <p class="mt-4">Use of Any Beloy's Gym Fitness worldwide<br>Bring a Guest anytime<br>50% Off Select Drinks<br>Free Wifi<br>Use of any workout machine, body enhancement machine, and many more!</p>
+            <div class="mt-6 flex justify-center">
+                <a href="#" class="bg-[#1E1A3D] text-white py-2 px-4 rounded">Join Premium</a>
+            </div>
+            <button class="mt-4 text-[#1E1A3D] underline" onclick="closeModal('premium-modal')">Close</button>
+        </div>
+    </div>
+
+    <div class="footer" id="footer-content">
+        Footer content goes here
     </div>
 
     <script>
@@ -146,26 +161,21 @@
             document.getElementById('footer-content').innerText = translations[language].footer;
         }
 
-        function showModal(type) {
-            document.getElementById('modal').style.display = 'block';
-            document.getElementById('modal-classic').style.display = 'none';
-            document.getElementById('modal-premium').style.display = 'none';
-            if (type === 'classic') {
-                document.getElementById('modal-classic').style.display = 'block';
-            } else if (type === 'premium') {
-                document.getElementById('modal-premium').style.display = 'block';
-            }
+        function showModal(id) {
+            document.getElementById(id).classList.remove('hidden');
         }
 
-        function closeModal() {
-            document.getElementById('modal').style.display = 'none';
+        function closeModal(id) {
+            document.getElementById(id).classList.add('hidden');
         }
 
         window.onclick = function(event) {
-            if (event.target == document.getElementById('modal')) {
-                closeModal();
+            if (event.target == document.getElementById('classic-modal')) {
+                closeModal('classic-modal');
+            } else if (event.target == document.getElementById('premium-modal')) {
+                closeModal('premium-modal');
             }
         }
     </script>
 </body>
-</html>s
+</html>
